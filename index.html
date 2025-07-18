@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daraja Hisoblagich</title>
+  <a href="https://www.instagram.com/zoxidjs/" target="_blank" class="developer">insta: zoxidjs</a>
+  <style>
+    .developer {
+        position: fixed;
+        bottom: 90%;
+        color: aqua;
+    }
+
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #4d5456, #ed6d6d);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .calculator {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 28px;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      background-color: #2193b0;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #167a96;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #333;
+    }
+
+    @media (max-width: 480px) {
+      .calculator {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <h1>Daraja Hisoblagich</h1>
+    <input type="number" id="base" placeholder="Sonni kiriting" />
+    <input type="number" id="exponent" placeholder="Darajasini kiriting" />
+    <div class="result" id="resultBox"></div>
+  </div>
+
+  <script>
+     const baseInput = document.getElementById("base");
+    const exponentInput = document.getElementById("exponent");
+    const resultBox = document.getElementById("resultBox");
+
+    function calculate() {
+      const base = Number(baseInput.value);
+      const exponent = Number(exponentInput.value);
+
+      if (!isNaN(base) && !isNaN(exponent)) {
+        const result = Math.pow(base, exponent);
+        resultBox.textContent = `${result}`;
+      } else {
+        resultBox.textContent = '';
+      }
+    }
+
+    baseInput.addEventListener("input", calculate);
+    exponentInput.addEventListener("input", calculate);
+  </script>
+</body>
+</html>
